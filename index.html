@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Currency Converter</title>
+    </head>
+    <body>
+        <section class="hero">
+            <h1 class="mt-2 text-center font-bold text-3xl">Currency Converter</h1>
+            <p class="mt-2 text-center text-lg">Welcome to the latest Currency converter Online</p>
+        </section>
+        <section class="mt-4 flex justify-center">
+            <div>
+                <form class="bg-slate-100 rounded">
+                    <div class="flex gap-x-6 justify-between py-10 px-4">
+                        <div class="flex flex-col">
+                            <label class="font-semibold" for="amount">Amount</label>
+                            <div class="relative">
+                                <input
+                                    class="relative p-2 w-72 pl-10 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                                    type="text"
+                                    name="amount"
+                                    placeholder="Enter Amount"
+                                >
+                                <button disabled type="submit" class="absolute top-1 left-0 p-2.5 text-sm font-medium rounded-r-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16"> <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/> </svg>
+                                </button>
+                                
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="font-semibold" for="from">From</label>
+                            <select class="p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="from">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="INR">INR</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="font-semibold" for="to">To</label>
+                            <select class="p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="to">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="INR">INR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex justify-end pb-6 px-4 ">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Convert</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <script src="./src/separador-millares.js"></script>
+    </body>
+</html>
