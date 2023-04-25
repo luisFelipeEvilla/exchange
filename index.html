@@ -8,19 +8,21 @@
         <title>Currency Converter</title>
     </head>
     <body>
-        <section class="hero">
-            <h1 class="mt-2 text-center font-bold text-3xl">Currency Converter</h1>
-            <p class="mt-2 text-center text-lg">Welcome to the latest Currency converter Online</p>
+        <section class="bg-blue-500">
+            <div class="flex flex-col justify-center h-72">
+                <h1 class="mt-2 text-center font-bold text-3xl text-white">Currency Converter</h1>
+                <p class="mt-4  text-center text-lg text-white">Welcome to the latest Currency converter Online</p>
+            </div>
         </section>
         <section class="mt-4 flex justify-center">
             <div>
-                <form class="bg-slate-100 rounded">
+                <form class="bg-white px-4 rounded shadow-md">
                     <div class="flex gap-x-6 justify-between py-10 px-4">
                         <div class="flex flex-col">
-                            <label class="font-semibold" for="amount">Amount</label>
+                            <label class="font-semibold mb-1.5" for="amount">Amount</label>
                             <div class="relative">
                                 <input
-                                    class="relative p-2 w-72 pl-10 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                                    class="relative shadow-sm p-2 w-72 pl-10 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                                     type="text"
                                     name="amount"
                                     placeholder="Enter Amount"
@@ -32,8 +34,8 @@
                             </div>
                         </div>
                         <div class="flex flex-col">
-                            <label class="font-semibold" for="from">From</label>
-                            <select class="p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="from">
+                            <label class="font-semibold mb-1.5" for="from">From</label>
+                            <select class="shadow-sm p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="from">
                                 <option value="USD">USD</option>
                                 <option value="EUR">EUR</option>
                                 <option value="GBP">GBP</option>
@@ -41,8 +43,8 @@
                             </select>
                         </div>
                         <div class="flex flex-col">
-                            <label class="font-semibold" for="to">To</label>
-                            <select class="p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="to">
+                            <label class="font-semibold mb-1.5" for="to">To</label>
+                            <select class="shadow-sm p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="to">
                                 <option value="USD">USD</option>
                                 <option value="EUR">EUR</option>
                                 <option value="GBP">GBP</option>
@@ -51,11 +53,12 @@
                         </div>
                     </div>
                     <div class="flex justify-end pb-6 px-4 ">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Convert</button>
+                        <button id="convert" class="shadow bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Convert</button>
                     </div>
                 </form>
             </div>
         </section>
         <script src="./src/separador-millares.js"></script>
+        <script src="./src/currency-converter.js"></script>
     </body>
 </html>
