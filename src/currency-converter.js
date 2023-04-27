@@ -15,9 +15,21 @@ $convertButton.addEventListener("click", async (e) => {
     const to = $toSelect.value;
 
     const result = await apiRequest(from, to, amount);
-
-    console.log(result);
+    printResults(result);
 })
+
+const printResults = (result) => {
+    const $resultsSection = document.getElementById("results-section");
+    const $result = document.getElementById("result");
+    const $fromRate = document.getElementById("from-rate");
+    const $toRate = document.getElementById("to-rate");
+
+    $resultsSection.classList.remove("hidden");
+
+    $result.textContent = `${result.query.amount} ${result.query.from} = ${result.result} ${result.query.to}`;
+    $fromRate.textContent = `1 ${result.query.from} = ${result.info.rate} ${result.query.to}`;
+    $toRate.textContent = `1 ${result.query.to} = ${1 / result.info.rate} ${result.query.from}`;
+}
 
 
 const apiRequest = async (from, to, amount) => {
@@ -33,12 +45,12 @@ const apiRequest = async (from, to, amount) => {
 
     try {
         const request = await fetch(url, requestOption); 
-        
         const result = await request.json();
-
+        
         return result;
     } catch (error) {
-        alert("Ocurrio un error realizando la transacción");
+        console.log(error)
+        alert("Ocurrio un error realizando la transacción ");
         console.error(error);
     }
 

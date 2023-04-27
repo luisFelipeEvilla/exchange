@@ -15,8 +15,8 @@
             </div>
         </section>
         <section class="mt-4 flex justify-center">
-            <div>
-                <form class="bg-white px-4 rounded shadow-md">
+            <div class="bg-white px-4 rounded shadow-md">
+                <form>
                     <div class="flex gap-x-6 justify-between py-10 px-4">
                         <div class="flex flex-col">
                             <label class="font-semibold mb-1.5" for="amount">Amount</label>
@@ -50,6 +50,13 @@
                                 <option value="GBP">GBP</option>
                                 <option value="INR">INR</option>
                             </select>
+                        </div>
+                    </div>
+                    <div id="results-section" class="hidden">
+                        <p id="result" class="text-lg font-bold"></p>
+                        <div>
+                            <p id="from-rate"></p>
+                            <p id="to-rate"></p>
                         </div>
                     </div>
                     <div class="flex justify-end pb-6 px-4 ">
