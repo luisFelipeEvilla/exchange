@@ -16,7 +16,25 @@ $convertButton.addEventListener("click", async (e) => {
 
     const result = await apiRequest(from, to, amount);
     printResults(result);
+    saveResult(result);
 })
+
+const saveResult = (data) => {
+    const result = {
+        from: data.query.from,
+        to: data.query.to,
+        amount: data.query.amount,
+        result: data.result,
+        info: {
+            timestamp: data.info.timestamp,
+            rate: data.info.rate
+        }
+    }
+
+    const results = JSON.parse(localStorage.getItem("results")) || [];
+
+    results.push(result);
+}
 
 const printResults = (result) => {
     const $resultsSection = document.getElementById("results-section");
