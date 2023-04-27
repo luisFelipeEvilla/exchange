@@ -1,4 +1,12 @@
 const $historyTable = document.querySelector('#history');
+const $clearHistoryButton = document.querySelector('#clear-history');
+
+$clearHistoryButton.addEventListener('click', () => {
+    localStorage.removeItem('results');
+    $historyTable.innerHTML = '';
+});
+
+
 
 export const saveResult = (data) => {
     const result = {
@@ -16,6 +24,7 @@ export const saveResult = (data) => {
     results.push(result);
 
     localStorage.setItem("results", JSON.stringify(results));
+    loadHistory();
 }
 
 export const loadHistory = () => {

@@ -3,25 +3,18 @@
 }
 
 .history-col {
-    padding: 2px 20px;
+    padding: 8px 20px;
     margin: 10px 50px;
     text-align: center;
 }
 
 tr {
-    border: 1px solid black;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.61);
 }
 
-tr th {
-    border: 1px solid black;
-}
-
-tr td {
-    border: 1px solid black;
-}
 
 td {
-    padding: 2px 20px;
+    padding: 8px 20px;
     text-align: center;
     font-size: 16px;
     font-weight: 400;
