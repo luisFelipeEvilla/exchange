@@ -1,9 +1,13 @@
+import { saveResult, printHistory, loadHistory } from "./history.js";
+
 const API_URL = 'https://api.apilayer.com/fixer/';
 const API_KEY = "WV7b63y60rEQWkdkrfzg67vR606IiEsn";
 
 const $amountInput = document.getElementsByName("amount")[0];
 const $fromSelect = document.getElementsByName("from")[0];
 const $toSelect = document.getElementsByName("to")[0];
+
+loadHistory();
 
 const $convertButton = document.getElementById("convert");
 
@@ -19,23 +23,6 @@ $convertButton.addEventListener("click", async (e) => {
     saveResult(result);
 })
 
-const saveResult = (data) => {
-    const result = {
-        from: data.query.from,
-        to: data.query.to,
-        amount: data.query.amount,
-        result: data.result,
-        info: {
-            timestamp: data.info.timestamp,
-            rate: data.info.rate
-        }
-    }
-
-    const results = JSON.parse(localStorage.getItem("results")) || [];
-
-    results.push(result);
-}
-
 const printResults = (result) => {
     const $resultsSection = document.getElementById("results-section");
     const $result = document.getElementById("result");
@@ -48,7 +35,6 @@ const printResults = (result) => {
     $fromRate.textContent = `1 ${result.query.from} = ${result.info.rate} ${result.query.to}`;
     $toRate.textContent = `1 ${result.query.to} = ${1 / result.info.rate} ${result.query.from}`;
 }
-
 
 const apiRequest = async (from, to, amount) => {
     const url = `${API_URL}convert?access_key=${API_KEY}&from=${from}&to=${to}&amount=${amount}`;

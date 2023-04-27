@@ -1,0 +1,29 @@
+.history-table {
+    border-spacing: 20px;
+}
+
+.history-col {
+    padding: 2px 20px;
+    margin: 10px 50px;
+    text-align: center;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+tr th {
+    border: 1px solid black;
+}
+
+tr td {
+    border: 1px solid black;
+}
+
+td {
+    padding: 2px 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.8;
+}
