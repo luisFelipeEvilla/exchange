@@ -16,7 +16,11 @@ $convertButton.addEventListener("click", async (e) => {
     const from = $fromSelect.value;
     const to = $toSelect.value;
 
+    $convertButton.disabled = true;
+
     const result = await apiRequest(from, to, amount);
+
+    $convertButton.disabled = false;
     printResults(result);
     saveResult(result);
 })
@@ -51,8 +55,7 @@ const apiRequest = async (from, to, amount) => {
         
         return result;
     } catch (error) {
-        console.log(error)
-        alert("Ocurrio un error realizando la transacción ");
+        alert("Ocurrio un error realizando la transacción");
         console.error(error);
     }
 
