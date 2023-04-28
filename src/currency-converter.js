@@ -1,5 +1,6 @@
-import { saveResult, printHistory, loadHistory } from "./history.js";
+import { saveResult, printHistory, loadHistory } from "./history-table.js";
 import { API_URL, API_KEY } from "./config.js";
+import { formatCurrency } from "./utils.js";
 
 const ERRORBORDER = "border-red-500";
 
@@ -8,8 +9,6 @@ const $fromSelect = document.getElementsByName("from")[0];
 const $toSelect = document.getElementsByName("to")[0];
 const $spinner = document.getElementById("exchange-spinner");
 const $resultsSection = document.getElementById("results-section");
-
-loadHistory();
 
 const $convertButton = document.getElementById("convert");
 
@@ -41,7 +40,10 @@ const printResults = (result) => {
 
     $resultsSection.classList.remove("hidden");
 
-    $result.textContent = `${result.query.amount} ${result.query.from} = ${result.result} ${result.query.to}`;
+    const amount = formatCurrency(result.query.amount);
+    const resultAmount = formatCurrency(result.result);
+
+    $result.textContent = `${amount} ${result.query.from} = ${resultAmount} ${result.query.to}`;
     $fromRate.textContent = `1 ${result.query.from} = ${result.info.rate} ${result.query.to}`;
     $toRate.textContent = `1 ${result.query.to} = ${1 / result.info.rate} ${result.query.from}`;
 }
@@ -74,17 +76,30 @@ const apiRequest = async (from, to, amount) => {
 const checkForm = () => {
     const amount = $amountInput.value;
 
-    if (amount === "" || amount <= 0) {
-        $amountInput.classList.add(ERRORBORDER);
-        alert("Amount must be greater than 0");
+    // Check if amount is empty
+    if (amount === "" || amount === "0") {
+        showAmountError("Amount is required and must be greater than 0");
+
         return false;
     }
 
+    // Check if amount is a number
+    if (isNaN(amount)) {
+        showAmountError("Amount must be a number");
+
+        return false;
+    }
+   
     return true;
 }
 
 const removeErrors = () => {
     $amountInput.addEventListener("input", () => $amountInput.classList.remove(ERRORBORDER));
+}
+
+const showAmountError = (mensaje) => {
+    $amountInput.classList.add(ERRORBORDER);
+    alert(mensaje);
 }
 
 removeErrors();

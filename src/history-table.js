@@ -1,3 +1,5 @@
+import { formatCurrency } from "./utils.js";
+
 const $historyTable = document.querySelector('#history-table');
 const $clearHistoryButton = document.querySelector('#clear-history');
 
@@ -5,8 +7,6 @@ $clearHistoryButton.addEventListener('click', () => {
     localStorage.removeItem('results');
     $historyTable.innerHTML = '';
 });
-
-
 
 export const saveResult = (data) => {
     const result = {
@@ -46,8 +46,8 @@ export const printHistory = (results) => {
 
         $from.textContent = result.from;
         $to.textContent = result.to;
-        $amount.textContent = result.amount;
-        $result.textContent = result.result;
+        $amount.textContent = formatCurrency(result.amount);
+        $result.textContent = formatCurrency(result.result);
         $timestamp.textContent = new Date(result.info.timestamp * 1000).toLocaleString();
         $rate.textContent = result.info.rate;
 
@@ -62,3 +62,5 @@ export const printHistory = (results) => {
         $historyTable.appendChild($tr);
     });
 };
+
+loadHistory();
