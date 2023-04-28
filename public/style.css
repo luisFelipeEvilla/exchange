@@ -8,12 +8,12 @@
     text-align: center;
 }
 
-tr {
+.history-table tr {
     border-bottom: 0.2px solid rgba(0, 0, 0, 0.61);
 }
 
 
-td {
+.history-table td {
     padding: 8px 20px;
     text-align: center;
     font-size: 16px;

@@ -1,7 +1,5 @@
 import { saveResult, printHistory, loadHistory } from "./history.js";
-
-const API_URL = 'https://api.apilayer.com/fixer/';
-const API_KEY = "WV7b63y60rEQWkdkrfzg67vR606IiEsn";
+import { API_URL, API_KEY } from "./config.js";
 
 const $amountInput = document.getElementsByName("amount")[0];
 const $fromSelect = document.getElementsByName("from")[0];
@@ -37,7 +35,7 @@ const printResults = (result) => {
 }
 
 const apiRequest = async (from, to, amount) => {
-    const url = `${API_URL}convert?access_key=${API_KEY}&from=${from}&to=${to}&amount=${amount}`;
+    const url = `${API_URL}convert?from=${from}&to=${to}&amount=${amount}`;
     const headers = new Headers();
     headers.append("apiKey", API_KEY);
 

@@ -29,11 +29,12 @@ export const saveResult = (data) => {
 
 export const loadHistory = () => {
     const results = JSON.parse(localStorage.getItem("results")) || [];
-    console.log(results);
     printHistory(results);
 }
 
 export const printHistory = (results) => {
+    $historyTable.innerHTML = '';
+
     results.forEach(result => {
         const $tr = document.createElement('tr');
         const $from = document.createElement('td');
