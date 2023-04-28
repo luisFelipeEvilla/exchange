@@ -11,6 +11,17 @@ const $spinner = document.getElementById("exchange-spinner");
 const $resultsSection = document.getElementById("results-section");
 
 const $convertButton = document.getElementById("convert");
+const $swapButton = document.getElementById("swap");
+
+$swapButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    const fromValue = $fromSelect.value;
+    const toValue = $toSelect.value;
+
+    $fromSelect.value = toValue;
+    $toSelect.value = fromValue;
+});
 
 $convertButton.addEventListener("click", async (e) => {
     e.preventDefault(); 
