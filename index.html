@@ -9,13 +9,21 @@
         <title>Currency Converter</title>
     </head>
     <body>
-        <section class="bg-blue-500">
+        <header class="h-14 header fixed w-full">
+            <ul class="header-links justify-end items-center h-full flex gap-x-6 mr-8">
+                <a class="header-link" href="#home">Home</a>
+                <a class="header-link" href="#exchange">Exchange</a>
+                <a class="header-link" href="#history">History</a>
+                <a class="header-link" href="#rates">Rates</a>
+            </ul>
+        </header>
+        <section id='home'class="bg-blue-500">
             <div class="flex flex-col justify-center h-72">
                 <h1 class="mt-2 text-center font-bold text-3xl text-white">Currency Converter</h1>
                 <p class="mt-4  text-center text-lg text-white">Welcome to the latest Currency converter Online</p>
             </div>
         </section>
-        <section class="mt-4 flex justify-center">
+        <section id="exchange" class="mt-4 flex justify-center">
             <div class="border rounded-md bg-white px-4 rounded shadow-md">
                 <form>
                     <div class="flex gap-x-6 justify-between py-10 px-4">
@@ -74,7 +82,7 @@
                 </form>
             </div>
         </section>
-        <section class="flex flex-col justify-center items-center mt-4 mb-8">
+        <section id='history' class="flex flex-col justify-center items-center mt-4 mb-8">
             <div class="my-8">
                 <h2 class="text-3xl font-bold text-center my-4">Transactions History</h2>
                 <p class="text-md font-normal">Here you can see your latest transactions information</p>
@@ -91,7 +99,7 @@
                             <th class="history-col">Result</th>
                         </tr>
                     </thead>
-                    <tbody id="history"></tbody>
+                    <tbody id="history-table"></tbody>
                 </table>
                 <div class="flex justify-end mt-6">
                     <button id="clear-history" class="bg-red-500 text-white py-2 px-4 font-semibold text-sm rounded-md hover:bg-red-600">
@@ -100,7 +108,7 @@
                 </div>
             </div>
         </section>
-        <section class="flex flex-col justify-center items-center mt-4 mb-8">
+        <section id="rates" class="flex flex-col justify-center items-center mt-4 mb-8">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-center my-4">Conversion Rates</h2>
                 <p class="text-md font-normal">Here you can see directly actual conversion rate from your currency to anothers</p>
@@ -126,7 +134,7 @@
                             <th class="history-col">Change</th>
                         </tr>
                     </thead>
-                    <tbody id="rates"></tbody>
+                    <tbody id="rates-table"></tbody>
                 </table>
             </div>
         </section>

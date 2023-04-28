@@ -1,4 +1,4 @@
-const $historyTable = document.querySelector('#history');
+const $historyTable = document.querySelector('#history-table');
 const $clearHistoryButton = document.querySelector('#clear-history');
 
 $clearHistoryButton.addEventListener('click', () => {

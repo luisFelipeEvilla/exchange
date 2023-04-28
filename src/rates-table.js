@@ -21,7 +21,7 @@ export const getRates = async (base) => {
 }
 
 export const printRates = (rates, base) => {
-    const $ratesTable = document.getElementById("rates");
+    const $ratesTable = document.getElementById("rates-table");
 
     $ratesTable.innerHTML = "";
 

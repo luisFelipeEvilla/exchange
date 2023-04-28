@@ -1,3 +1,25 @@
+.header {
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.header-link {
+    color: #01baef;	
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.8;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.header-link:hover {
+    border-bottom: 1px solid #01baef;
+    font-weight: 700;
+    transform: scale(1.01);
+}
+
+
 .history-table {
     border-spacing: 20px;
 }
