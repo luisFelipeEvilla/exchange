@@ -1,9 +1,13 @@
 import { saveResult, printHistory, loadHistory } from "./history.js";
 import { API_URL, API_KEY } from "./config.js";
 
+const ERRORBORDER = "border-red-500";
+
 const $amountInput = document.getElementsByName("amount")[0];
 const $fromSelect = document.getElementsByName("from")[0];
 const $toSelect = document.getElementsByName("to")[0];
+const $spinner = document.getElementById("exchange-spinner");
+const $resultsSection = document.getElementById("results-section");
 
 loadHistory();
 
@@ -12,21 +16,25 @@ const $convertButton = document.getElementById("convert");
 $convertButton.addEventListener("click", async (e) => {
     e.preventDefault(); 
     
+    if (!checkForm()) return;
+
     const amount = $amountInput.value;
     const from = $fromSelect.value;
     const to = $toSelect.value;
 
     $convertButton.disabled = true;
+    $spinner.classList.remove("hidden");
 
     const result = await apiRequest(from, to, amount);
 
     $convertButton.disabled = false;
+    $spinner.classList.add("hidden");
+
     printResults(result);
     saveResult(result);
 })
 
 const printResults = (result) => {
-    const $resultsSection = document.getElementById("results-section");
     const $result = document.getElementById("result");
     const $fromRate = document.getElementById("from-rate");
     const $toRate = document.getElementById("to-rate");
@@ -57,6 +65,26 @@ const apiRequest = async (from, to, amount) => {
     } catch (error) {
         alert("Ocurrio un error realizando la transacción");
         console.error(error);
+
+        $convertButton.disabled = false;
+        $spinner.classList.add("hidden");
+    }
+}
+
+const checkForm = () => {
+    const amount = $amountInput.value;
+
+    if (amount === "" || amount <= 0) {
+        $amountInput.classList.add(ERRORBORDER);
+        alert("Amount must be greater than 0");
+        return false;
     }
 
+    return true;
 }
+
+const removeErrors = () => {
+    $amountInput.addEventListener("input", () => $amountInput.classList.remove(ERRORBORDER));
+}
+
+removeErrors();

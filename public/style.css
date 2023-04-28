@@ -19,6 +19,27 @@
     transform: scale(1.01);
 }
 
+.spinner {
+    border: 4px solid #01BAEF;
+    border-left-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 33%;
+}
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 
 .history-table {
     border-spacing: 20px;

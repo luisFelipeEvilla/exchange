@@ -23,7 +23,9 @@
                 <p class="mt-4  text-center text-lg text-white">Welcome to the latest Currency converter Online</p>
             </div>
         </section>
-        <section id="exchange" class="mt-4 flex justify-center">
+        <section id="exchange" class="mt-4 flex justify-center relative">
+            <div id='exchange-spinner' class="spinner hidden">
+            </div>
             <div class="border rounded-md bg-white px-4 rounded shadow-md">
                 <form>
                     <div class="flex gap-x-6 justify-between py-10 px-4">
@@ -53,19 +55,43 @@
                         <div class="flex flex-col">
                             <label class="font-semibold mb-1.5" for="from">From</label>
                             <select class="shadow-sm p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="from">
-                                <option value="USD">USD</option>
-                                <option value="EUR">EUR</option>
-                                <option value="GBP">GBP</option>
-                                <option value="INR">INR</option>
+                                <option value="USD">USD - United States dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="JPY">JPY - Japanese yen</option>
+                                <option value="GBP">GBP - Pound sterling</option>
+                                <option value="CHF">CHF - Swiss franc</option>
+                                <option value="CAD">CAD - Canadian dollar</option>
+                                <option value="AUD">AUD - Australian dollar</option>
+                                <option value="NZD">NZD - New Zealand dollar</option>
+                                <option value="CNY">CNY - Chinese yuan</option>
+                                <option value="HKD">HKD - Hong Kong dollar</option>
+                                <option value="SGD">SGD - Singapore dollar</option>
+                                <option value="KRW">KRW - South Korean won</option>
+                                <option value="MXN">MXN - Mexican peso</option>
+                                <option value="BRL">BRL - Brazilian real</option>
+                                <option value="INR">INR - Indian rupee</option>
+                                <option value="RUB">RUB - Russian ruble</option>
                             </select>
                         </div>
                         <div class="flex flex-col">
                             <label class="font-semibold mb-1.5" for="to">To</label>
                             <select class="shadow-sm p-2 w-72 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent cursor-pointer" name="to">
-                                <option value="USD">USD</option>
-                                <option value="EUR">EUR</option>
-                                <option value="GBP">GBP</option>
-                                <option value="INR">INR</option>
+                                <option value="USD">USD - United States dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="JPY">JPY - Japanese yen</option>
+                                <option value="GBP">GBP - Pound sterling</option>
+                                <option value="CHF">CHF - Swiss franc</option>
+                                <option value="CAD">CAD - Canadian dollar</option>
+                                <option value="AUD">AUD - Australian dollar</option>
+                                <option value="NZD">NZD - New Zealand dollar</option>
+                                <option value="CNY">CNY - Chinese yuan</option>
+                                <option value="HKD">HKD - Hong Kong dollar</option>
+                                <option value="SGD">SGD - Singapore dollar</option>
+                                <option value="KRW">KRW - South Korean won</option>
+                                <option value="MXN">MXN - Mexican peso</option>
+                                <option value="BRL">BRL - Brazilian real</option>
+                                <option value="INR">INR - Indian rupee</option>
+                                <option value="RUB">RUB - Russian ruble</option>
                             </select>
                         </div>
                     </div>
@@ -119,10 +145,22 @@
                         <label>Choose Your Currency</label>
                         <select id="base-currency-selector" class="shadow-sm rounded-md px-4 py-1 w-32 hover:cursor-pointer">
                             <option value="">Select One</option>
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                            <option value="GBP">GBP</option>
-                            <option value="INR">INR</option>
+                            <option value="USD">USD - United States dollar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="JPY">JPY - Japanese yen</option>
+                            <option value="GBP">GBP - Pound sterling</option>
+                            <option value="CHF">CHF - Swiss franc</option>
+                            <option value="CAD">CAD - Canadian dollar</option>
+                            <option value="AUD">AUD - Australian dollar</option>
+                            <option value="NZD">NZD - New Zealand dollar</option>
+                            <option value="CNY">CNY - Chinese yuan</option>
+                            <option value="HKD">HKD - Hong Kong dollar</option>
+                            <option value="SGD">SGD - Singapore dollar</option>
+                            <option value="KRW">KRW - South Korean won</option>
+                            <option value="MXN">MXN - Mexican peso</option>
+                            <option value="BRL">BRL - Brazilian real</option>
+                            <option value="INR">INR - Indian rupee</option>
+                            <option value="RUB">RUB - Russian ruble</option>
                         </select>
                     </div>
                 </form>
